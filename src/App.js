@@ -27,39 +27,26 @@ function App() {
 
     function printAllPaths(s, d) {
         let isVisited = new Array(v)
-
         for (let i = 0; i < v; i++) {
             isVisited[i] = false
-
             let pathList = []
             pathList.push(s)
-            // console.log('pathList:')
-            // console.log(pathList)
             printAllPathsUtil(s, d, isVisited, pathList)
-
         }
-
     }
 
     function printAllPathsUtil(u, d, isVisited, localPathList) {
-
         if (u === d) {
             let temp = []
             temp.push(...localPathList)
 
             function checkArrayInArray(arr, farr) {
                 return JSON.stringify(arr).includes(JSON.stringify(farr));
-
             }
 
             if (!checkArrayInArray(res, temp)) {
                 res.push(temp)
             }
-
-            // setResult(result.push([localPathList]))
-
-
-            // localPathList != undefined &&  setResult(result.push(localPathList))
             return
         }
         isVisited[u] = true
